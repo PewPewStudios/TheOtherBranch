@@ -1,13 +1,13 @@
 //COLLISIONS
 
-if collision_circle(x,y-sprite_height/2,3,obj_ground,1,1)
-vspeed = abs(vspeed) / 2
+//if collision_circle(x,y-sprite_height/2,3,obj_ground,1,1)
+//vspeed = abs(vspeed) / 2
 
-if collision_circle(x-sprite_width/2,y,3,obj_ground,1,1)
-hspeed = abs(hspeed) / 2
+//if collision_circle(x-sprite_width/2,y,3,obj_ground,1,1)
+//hspeed = abs(hspeed) / 2
 
-if collision_circle(x+sprite_width/2,y,3,obj_ground,1,1)
-hspeed = -abs(hspeed) / 2
+//if collision_circle(x+sprite_width/2,y,3,obj_ground,1,1)
+//hspeed = -abs(hspeed) / 2
 
 //Platform Collisions
 
