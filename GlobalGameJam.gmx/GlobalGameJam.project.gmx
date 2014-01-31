@@ -154,6 +154,7 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_HTML5</room>
+    <room>rooms\rm_controls_config</room>
     <room>rooms\rm_main_menu</room>
     <room>rooms\rm_game</room>
     <room>rooms\rm_level_design</room>
