@@ -25,7 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.shoot = gp_face3;
+            <string>global.music_volume = 1
+global.sfx_volume = 1
+
+
+global.shoot = gp_face3;
 global.jump = gp_face1;
 global.use = gp_shoulderr;
 global.change = gp_shoulderr;

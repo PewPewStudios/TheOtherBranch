@@ -231,8 +231,8 @@ if global.player_controls[i] = 2
         global.move_up[controlling] = -gamepad_axis_value(controller,gp_axislv)
     if gamepad_axis_value(controller,gp_axislv) &gt; .4
         global.move_down[controlling] = gamepad_axis_value(controller,gp_axislv)
-    global.move_jump[controlling] = gamepad_button_check(controller,global.jump )
-    global.move_wall_bounce[controlling] = gamepad_button_check_pressed(controller,global.jump )
+    global.move_jump[controlling] = gamepad_button_check(controller,gp_face1 )
+    global.move_wall_bounce[controlling] = gamepad_button_check_pressed(controller, global.jump) //global.jump
     global.action[controlling] = gamepad_button_check_pressed(controller,global.shoot )
     }
 if global.player_controls[i] = 3
@@ -285,6 +285,7 @@ if global.player_controls[i] = 4
             <kind>1</kind>
             <string>if room = rm_controls_config
     {
+    room_goto_next()
     draw_set_font(fnt_main_menu_main)
     draw_set_halign(fa_center)
     draw_set_valign(fa_center)

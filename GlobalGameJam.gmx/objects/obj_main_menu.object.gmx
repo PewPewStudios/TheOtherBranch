@@ -212,6 +212,61 @@ alarm[1] = 3
     }
 }
 
+if hash[selected] = "music"
+    {
+    
+    if global.move_right[0]
+    if cmove
+        {
+        cmove = 0
+        alarm[1] = 4
+        //if keyboard_check_pressed(vk_right)
+            {
+            if global.music_volume &lt; 1
+            global.music_volume+=.02
+            }
+        }
+    
+    if global.move_left[0]
+    if cmove
+        {    
+        cmove = 0
+        alarm[1] = 4
+        //if keyboard_check_pressed(vk_left)
+            {
+            if global.music_volume &gt; 0
+            global.music_volume-=.02
+            }
+        }
+    }
+    
+if hash[selected] = "sfx"
+    {
+    if global.move_right[0]
+    if cmove
+        {
+        cmove = 0
+        alarm[1] = 4
+        //if keyboard_check_pressed(vk_right)
+            {
+            if global.sfx_volume &lt; 1
+            global.sfx_volume+=.02
+            }
+        }
+    
+    if global.move_left[0]
+    if cmove
+        {    
+        cmove = 0
+        alarm[1] = 4
+        //if keyboard_check_pressed(vk_left)
+            {
+            if global.sfx_volume &gt; 0
+            global.sfx_volume-=.02
+            }
+        }
+    }
+
 if hash[selected] = "multiplayer"
     {
     if global.move_left[0]
@@ -337,7 +392,7 @@ if hash[selected] = "p2c"
     if global.player_controls[1] &lt; 0 global.player_controls[1] = 4
     }
     
-if global.action[0] //global.move_jump[0] || keyboard_check_pressed(vk_enter)
+if global.action[0] || global.move_jump[0] //|| keyboard_check_pressed(vk_enter)
     {
     if hash[selected] = "start"
         {
@@ -455,6 +510,10 @@ str = "Joystick 2"
 
 
 scr_add_option("Player 2: &lt;"+str+"&gt;","p2c")
+
+scr_add_option("Music Volume: &lt; "+string(round(global.music_volume*100))+"% &gt;","music")
+scr_add_option("Sound Effects Volume: &lt; "+string(round(global.sfx_volume*100))+"% &gt;","sfx")
+
 
 scr_add_option("Exit Game","exit")
 
