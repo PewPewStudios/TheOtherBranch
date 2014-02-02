@@ -562,8 +562,23 @@ str = "Joystick 2"
 
 scr_add_option("Player 2: &lt;"+str+"&gt;","p2c")
 
-scr_add_option("Music Volume: &lt; "+string(round(global.music*100))+"% &gt;","music")
-scr_add_option("Sound Effects Volume: &lt; "+string(round(global.soundFX*100))+"% &gt;","sfx")
+str = "["
+for(i=0 ; i&lt;global.music * 10 ; i++)
+str+="|"
+str+="]"
+for(i=i ; i&lt;10 ; i++)
+str+=" "
+
+scr_add_option("Music Volume: &lt; "+str+" &gt;","music") //string(round(global.music*100))
+
+str = "["
+for(i=0 ; i&lt;global.soundFX * 10 ; i++)
+str+="|"
+str+="]"
+for(i=i ; i&lt;10 ; i++)
+str+=" "
+
+scr_add_option("Sound Effects Volume: &lt; "+str+" &gt;","sfx") //string(round(global.soundFX*100))
 
 
 scr_add_option("Exit Game","exit")
