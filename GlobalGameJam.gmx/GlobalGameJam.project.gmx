@@ -103,6 +103,7 @@
       <script>scripts\infobox_centered.gml</script>
       <script>scripts\create_floating_number.gml</script>
       <script>scripts\scr_add_option.gml</script>
+      <script>scripts\scr_add_option_bar.gml</script>
       <script>scripts\scr_clear_options.gml</script>
     </scripts>
     <scripts name="html5">
