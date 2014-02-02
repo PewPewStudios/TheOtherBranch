@@ -443,7 +443,7 @@ if hash[selected] = "p2c"
     if global.player_controls[1] &lt; 0 global.player_controls[1] = 4
     }
     
-if global.action[0] || global.move_jump[0] //|| keyboard_check_pressed(vk_enter)
+if global.action[0] || (global.move_jump[0] &amp;&amp; global.player_controls[0] = 3) //|| keyboard_check_pressed(vk_enter)
     {
     if hash[selected] = "start"
         {
