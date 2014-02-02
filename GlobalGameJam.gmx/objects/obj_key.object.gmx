@@ -25,8 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>key_id = global.key;
-global.key++;
+            <string>//Please specifiy in creation code whether it's 
+//key_id = 0 for player1
+//key_id = 1 for player2
 
 held =-1;
 

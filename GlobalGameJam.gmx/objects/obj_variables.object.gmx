@@ -46,8 +46,8 @@ global.k2MoveRight = vk_right;
 global.k2MoveUp = vk_up;
 global.k2MoveDown = vk_down;
 
-global.music = 1;
-global.soundFX = 1;
+global.music = 0;
+global.soundFX = 0;
 
 global.players = 0;
 global.key = 0;

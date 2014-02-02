@@ -25,8 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>door_id = global.door;
-global.door++;
+            <string>//Please set door_id
+//door_id = 0 (player1)
+//door_id = 1 (player2)
 </string>
           </argument>
         </arguments>

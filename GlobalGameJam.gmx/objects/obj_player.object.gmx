@@ -25,9 +25,12 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>max_ghook_dis = 384
+            <string>//Please specifiy which player in creation code
+//player_id = 0 (player1)
+//player_id = 1 (player2)
+max_ghook_dis = 384
 jumps = 0
-
+player_id = 2;
 image_speed = 0
 
 HP = 2;
@@ -45,9 +48,8 @@ key = 0;
 
 controlled = global.controlledBy;
 global.controlledBy++;
-player_id = global.players
-global.players++
-obj_hud.player[player_id] = id
+
+//obj_hud.player[player_id] = id
 
 max_speed = 12
 
