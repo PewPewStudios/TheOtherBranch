@@ -384,14 +384,14 @@ background_color = 16761506
 
 if ghook_active 
     {
-    draw_sprite_ext(spr_hook,0,ghook_x,ghook_y,1,1,ghook_dir,c_white,1)
+    draw_sprite_ext(spr_hook,player_id,ghook_x,ghook_y,1,1,ghook_dir,c_white,1)
     
     for(i=32 ; i&lt;point_distance(x,y,ghook_x,ghook_y) ; i+=32)
         {
         dir = point_direction(x,y,ghook_x,ghook_y)
         x1 = x+lengthdir_x(i,dir)
         y1 = y+lengthdir_y(i,dir)
-        draw_sprite_ext(spr_ghook_wire , 0 , x1,y1 ,1,1,dir,c_white,1 )
+        draw_sprite_ext(spr_ghook_wire , player_id , x1,y1 ,1,1,dir,c_white,1 )
         }
     }
     
@@ -433,6 +433,7 @@ draw_sprite_ext(sprite_index,image_index,x,y,1,facing,image_angle,c_white,1);
 if(player_id = 1)
 draw_sprite_ext(sprite_index,image_index,x,y,1,facing,image_angle,c_white,1);
 
+/*
 if ghook_active
     {
     if(player_id = 0)
@@ -445,6 +446,7 @@ if ghook_active
         }
     draw_line(x,y,ghook_x,ghook_y)
     }
+*/
 if global.game_mode = GAMEMODE_CTF
 draw_sprite_ext(spr_arrow,0,x,y,1,1,point_direction(x,y,obj_flag.x,obj_flag.y),c_white,1)
 
