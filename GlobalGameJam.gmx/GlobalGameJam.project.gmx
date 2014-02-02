@@ -187,13 +187,18 @@
     <room>rooms\rm_level2</room>
     <room>rooms\rm_tutorial</room>
   </rooms>
-  <constants number="6">
+  <constants number="11">
     <constant name="player1_sprite">spr_mouse_moving</constant>
     <constant name="player2_sprite">spr_mouse_moving</constant>
     <constant name="GAMEMODE_CTF">0</constant>
     <constant name="GAMEMODE_STORY">1</constant>
     <constant name="GAMEMODE_RACE">2</constant>
     <constant name="GAMEMODE_CONQUEST">3</constant>
+    <constant name="CONTROLS_ARROWS">0</constant>
+    <constant name="CONTROLS_WASD">1</constant>
+    <constant name="CONTROLS_GAMEPAD">2</constant>
+    <constant name="CONTROLS_J1">3</constant>
+    <constant name="CONTROLS_J2">4</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

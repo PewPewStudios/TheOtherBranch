@@ -72,9 +72,16 @@ alarm[2] = 10
             <kind>1</kind>
             <string>
 if gamepad_is_connected(0)
-global.player_controls[0] = 2
+global.player_controls[0] = CONTROLS_GAMEPAD
+else
+if joystick_exists(1)
+global.player_controls[0] = CONTROLS_J1
+
 if gamepad_is_connected(1)
-global.player_controls[1] = 2
+global.player_controls[1] = CONTROLS_GAMEPAD
+else
+if joystick_exists(2)
+global.player_controls[0] = CONTROLS_J2
 </string>
           </argument>
         </arguments>
@@ -469,7 +476,7 @@ if hash[selected] = "p2c"
     if global.player_controls[1] &lt; 0 global.player_controls[1] = 4
     }
     
-if global.action[0] || (global.move_jump[0] &amp;&amp; global.player_controls[0] = 3) //|| keyboard_check_pressed(vk_enter)
+if global.action[0] || (global.move_jump[0] &amp;&amp; global.player_controls[0] = CONTROLS_GAMEPAD) //|| keyboard_check_pressed(vk_enter)
     {
     if hash[selected] = "start"
         {
