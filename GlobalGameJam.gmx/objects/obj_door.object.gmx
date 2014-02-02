@@ -28,12 +28,13 @@
             <string>//Please set door_id
 //door_id = 0 (player1)
 //door_id = 1 (player2)
+bg = noone;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_player">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -50,14 +51,18 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(other.holdKey &amp;&amp; other.hasCorrectKey)
+            <string>bg = collision_rectangle(x-(sprite_get_width(sprite_index)/2)-8,y-(sprite_get_height(sprite_index)/2),x+(sprite_get_width(sprite_index)/2)+8,y+(sprite_get_height(sprite_index)/2),obj_player,false,true);
+if(bg != noone)
 {
-    
-    instance_destroy();
-    with(other.key)
-    {
-        held = -1;
+    if(bg.holdKey &amp;&amp; bg.hasCorrectKey)
+        {
+        bg.hasCorrectKey = false;
         instance_destroy();
+        with(bg.key)
+        {
+            held = -1;
+            instance_destroy();
+        }
     }
 }
 </string>
