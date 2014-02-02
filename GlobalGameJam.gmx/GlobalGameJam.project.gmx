@@ -117,6 +117,14 @@
       <script>scripts\scr_dcollisions.gml</script>
       <script>scripts\scr_collisions.gml</script>
     </scripts>
+    <scripts name="room_scripts">
+      <script>scripts\player1.gml</script>
+      <script>scripts\player2.gml</script>
+      <script>scripts\door1.gml</script>
+      <script>scripts\door2.gml</script>
+      <script>scripts\key1.gml</script>
+      <script>scripts\key2.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_main_menu_main</font>
