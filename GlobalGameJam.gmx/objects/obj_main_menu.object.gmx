@@ -45,6 +45,7 @@ if(gamepad_is_connected(1))
     global.player_controls[1] = 4;
 }
 
+msc_add = 0
 </string>
           </argument>
         </arguments>
@@ -216,57 +217,107 @@ if hash[selected] = "music"
     {
     
     if global.move_right[0]
-    if cmove
         {
-        cmove = 0
-        alarm[1] = 4
-        //if keyboard_check_pressed(vk_right)
+        if cmove
             {
-            if global.music_volume &lt; 1
-            global.music_volume+=.02
+            cmove = 0
+            alarm[1] = 4
+            //if keyboard_check_pressed(vk_right)
+                {
+                if global.music &lt; 1
+                    {
+                    msc_add+=.01
+                    global.music += msc_add //.02
+                    }
+                if global.music &gt; 1
+                    {
+                    global.music = 1
+                    }
+                }
             }
         }
-    
-    if global.move_left[0]
-    if cmove
-        {    
-        cmove = 0
-        alarm[1] = 4
-        //if keyboard_check_pressed(vk_left)
+    else
+        {
+        if global.move_left[0]
             {
-            if global.music_volume &gt; 0
-            global.music_volume-=.02
+            if cmove
+                {    
+                cmove = 0
+                alarm[1] = 4
+                //if keyboard_check_pressed(vk_left)
+                    {
+                    if global.music &gt; 0
+                        {
+                        msc_add+=.01
+                        global.music -= msc_add
+                        }
+                    if global.music &lt; 0
+                        {
+                        global.music = 0
+                        }
+                    }
+                }
+            }
+        else
+            {
+            msc_add = 0
             }
         }
     }
     
+
 if hash[selected] = "sfx"
     {
     if global.move_right[0]
-    if cmove
         {
-        cmove = 0
-        alarm[1] = 4
-        //if keyboard_check_pressed(vk_right)
+        if cmove
             {
-            if global.sfx_volume &lt; 1
-            global.sfx_volume+=.02
+            cmove = 0
+            alarm[1] = 4
+            //if keyboard_check_pressed(vk_right)
+                {
+                if global.soundFX &lt; 1
+                    {
+                    msc_add+=.01
+                    global.soundFX += msc_add //.02
+                    }
+                if global.soundFX &gt; 1
+                    {
+                    global.soundFX = 1
+                    }
+                }
             }
         }
-    
-    if global.move_left[0]
-    if cmove
-        {    
-        cmove = 0
-        alarm[1] = 4
-        //if keyboard_check_pressed(vk_left)
+    else
+        {
+        if global.move_left[0]
             {
-            if global.sfx_volume &gt; 0
-            global.sfx_volume-=.02
+            if cmove
+                {    
+                cmove = 0
+                alarm[1] = 4
+                //if keyboard_check_pressed(vk_left)
+                    {
+                    if global.soundFX &gt; 0
+                        {
+                        msc_add+=.01
+                        global.soundFX -= msc_add
+                        }
+                    if global.soundFX &lt; 0
+                        {
+                        global.soundFX = 0
+                        }
+                    }
+                }
+            }
+        else
+            {
+            msc_add = 0
             }
         }
     }
-
+    
+    
 if hash[selected] = "multiplayer"
     {
     if global.move_left[0]
@@ -511,8 +562,8 @@ str = "Joystick 2"
 
 scr_add_option("Player 2: &lt;"+str+"&gt;","p2c")
 
-scr_add_option("Music Volume: &lt; "+string(round(global.music_volume*100))+"% &gt;","music")
-scr_add_option("Sound Effects Volume: &lt; "+string(round(global.sfx_volume*100))+"% &gt;","sfx")
+scr_add_option("Music Volume: &lt; "+string(round(global.music*100))+"% &gt;","music")
+scr_add_option("Sound Effects Volume: &lt; "+string(round(global.soundFX*100))+"% &gt;","sfx")
 
 
 scr_add_option("Exit Game","exit")
@@ -540,7 +591,7 @@ draw_set_color(c_black);
 */
 draw_set_halign(fa_center)
 draw_set_valign(fa_center)
-yoff = 128
+yoff = 0 //128
 for(i=0 ; i&lt;options ; i++)
     {
     draw_set_color(c_dkgray)
