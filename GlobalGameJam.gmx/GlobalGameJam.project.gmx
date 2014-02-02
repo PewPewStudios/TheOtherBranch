@@ -82,28 +82,41 @@
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
+    <scripts name="file I/O">
+      <script>scripts\scr_next_in.gml</script>
+      <script>scripts\scr_clear_next_in.gml</script>
+      <script>scripts\scr_next_out.gml</script>
+    </scripts>
     <script>scripts\view_follow.gml</script>
     <script>scripts\draw_border_rectangle.gml</script>
     <script>scripts\draw_pulse_text.gml</script>
     <script>scripts\scr_check_selected.gml</script>
-    <script>scripts\scr_controls.gml</script>
-    <script>scripts\scr_ghook.gml</script>
-    <script>scripts\scr_collisions.gml</script>
-    <script>scripts\check_gamepad_button.gml</script>
-    <script>scripts\scr_clear_options.gml</script>
-    <script>scripts\scr_add_option.gml</script>
-    <script>scripts\joystick_check_pressed.gml</script>
-    <script>scripts\convert_to_string_button.gml</script>
-    <script>scripts\create_floating_number.gml</script>
-    <script>scripts\draw_floating_number.gml</script>
-    <script>scripts\infobox_centered.gml</script>
-    <script>scripts\READ_ME.gml</script>
-    <script>scripts\mhtml5_check_orientation.gml</script>
-    <script>scripts\mhtml5_resize_screen.gml</script>
-    <script>scripts\mhtml5_hide_addressbar.gml</script>
-    <script>scripts\mhtml5_draw_flipwarning.gml</script>
-    <script>scripts\mhtml5_center_canvas.gml</script>
-    <script>scripts\scr_dcollisions.gml</script>
+    <scripts name="controls">
+      <script>scripts\scr_ghook.gml</script>
+      <script>scripts\scr_controls.gml</script>
+      <script>scripts\check_gamepad_button.gml</script>
+      <script>scripts\joystick_check_pressed.gml</script>
+      <script>scripts\convert_to_string_button.gml</script>
+    </scripts>
+    <scripts name="interface">
+      <script>scripts\draw_floating_number.gml</script>
+      <script>scripts\infobox_centered.gml</script>
+      <script>scripts\create_floating_number.gml</script>
+      <script>scripts\scr_add_option.gml</script>
+      <script>scripts\scr_clear_options.gml</script>
+    </scripts>
+    <scripts name="html5">
+      <script>scripts\mhtml5_draw_flipwarning.gml</script>
+      <script>scripts\mhtml5_center_canvas.gml</script>
+      <script>scripts\mhtml5_hide_addressbar.gml</script>
+      <script>scripts\mhtml5_resize_screen.gml</script>
+      <script>scripts\mhtml5_check_orientation.gml</script>
+      <script>scripts\READ_ME.gml</script>
+    </scripts>
+    <scripts name="collisions">
+      <script>scripts\scr_dcollisions.gml</script>
+      <script>scripts\scr_collisions.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_main_menu_main</font>

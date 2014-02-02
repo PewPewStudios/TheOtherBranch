@@ -80,16 +80,15 @@ image_speed = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(held = -1&amp;&amp; other.holdKey == false)
+            <string>if(held = -1 &amp;&amp; other.holdKey == false)
 {
 held = other.id
 other.holdKey = true;
 other.key = id;
 if(key_id = other.player_id)
-{
+    {
     other.hasCorrectKey = true;
-    
-}
+    }
 }
 </string>
           </argument>

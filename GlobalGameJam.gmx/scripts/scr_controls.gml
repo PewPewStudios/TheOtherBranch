@@ -50,13 +50,13 @@ else
 if global.move_jump[player_id]
     {
     if vspeed > 1
-    if collision_line(x,y,x,y+sprite_height/2+16,obj_ground,1,1)
+    if collision_line(x,y,x,y+sprite_width/2+16,obj_ground,1,1)
         {
-        //instance_create(x,y+sprite_height/2,obj_pow)
+        //instance_create(x,y+sprite_width/2,obj_pow)
         }
     //GROUND BOUNCE
     if vspeed = 0
-    if collision_circle(x,y+sprite_height/2+3,3,obj_ground,1,1)
+    if collision_circle(x,y+sprite_width/2+3,3,obj_ground,1,1)
     if can_jump
         {
         audio_play_sound(snd_jump,1,0)

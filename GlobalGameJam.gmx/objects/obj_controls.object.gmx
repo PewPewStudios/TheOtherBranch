@@ -294,7 +294,14 @@ if global.player_controls[i] = 4
         {
         str = "Player 2 Control Configuration Complete!##Press any key to save these settings and continue to the main menu.#To change these setting later, simply delete the controls.txt file in the game folder."
         if keyboard_check_pressed(vk_anykey)
+            {
+            fid = file_text_open_write("controls.txt")
+            str = ""
+            str+=scr_next_out(0)
+            file_text_write_string(fid,str)
+            file_text_close(fid)
             room_goto_next()
+            }
         }
         
     if config_step = 10
