@@ -52,6 +52,23 @@ global.move_down[1] = 0
 global.move_wall_bounce[1] = 0
 global.ghook[1] = 0
 
+//KEY MAPPINGS
+global.move_left_key[0] = vk_left
+global.move_right_key[0] = vk_right
+global.move_jump_key[0] = vk_up
+global.move_up_key[0] = vk_up
+global.move_down_key[0] = vk_down
+global.move_wall_bounce_key[0] = vk_up
+global.ghook_key[0] = vk_space
+
+global.move_left_key[1] = ord("A")
+global.move_right_key[1] = ord("D")
+global.move_jump_key[1] = ord("W")
+global.move_up_key[1] = ord("W")
+global.move_down_key[1] = ord("S")
+global.move_wall_bounce_key[1] = ord("W")
+global.ghook_key[1] = ord("C")
+
 blink = 1
 blink_dir = -.1
 
@@ -172,36 +189,36 @@ if(global.playersPlaying = 2)
     }
 if global.player_controls[i] = 0
     {
-    if keyboard_check(vk_left)
+    if keyboard_check(global.move_left_key[i])
         global.move_left[i] = 1
-    if keyboard_check(vk_right)
+    if keyboard_check(global.move_right_key[i])
         global.move_right[i] = 1
-    if keyboard_check(vk_up)
+    if keyboard_check(global.move_up_key[i])
         {
         global.move_jump[i] = 1
         global.move_up[i] = 1
         global.move_wall_bounce[i] = 1
         }
-    if keyboard_check(vk_down)
+    if keyboard_check(global.move_down_key[i])
         global.move_down[i] = 1
-    if keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter)
+    if keyboard_check_pressed(global.ghook_key[i]) //|| keyboard_check_pressed(vk_enter)
         global.action[i] = 1
     }
 if global.player_controls[i] = 1
     {
-    if keyboard_check(ord("A"))
+    if keyboard_check(global.move_left_key[i])
         global.move_left[i] = 1
-    if keyboard_check(ord("D"))
+    if keyboard_check(global.move_right_key[i])
         global.move_right[i] = 1
-    if keyboard_check(ord("W"))
+    if keyboard_check(global.move_up_key[i])
         {
         global.move_jump[i] = 1
         global.move_up[i] = 1
         global.move_wall_bounce[i] = 1
         }
-    if keyboard_check(ord("S"))
+    if keyboard_check(global.move_down_key[i])
         global.move_down[i] = 1
-    if keyboard_check_pressed(ord("C"))
+    if keyboard_check_pressed(global.ghook_key[i])
         global.action[i] = 1
     }
 if global.player_controls[i] = 2
@@ -273,74 +290,122 @@ if global.player_controls[i] = 4
     draw_set_valign(fa_center)
     draw_set_color(c_white)
     
-    if config_step = 9
+    if config_step = 11
         {
         str = "Player 2 Control Configuration Complete!##Press any key to save these settings and continue to the main menu.#To change these setting later, simply delete the controls.txt file in the game folder."
         if keyboard_check_pressed(vk_anykey)
             room_goto_next()
         }
         
-    if config_step = 8
+    if config_step = 10
         {
         str = "Player 2 Press the Fire Grappling Hook Button"
         if keyboard_check_pressed(vk_anykey)
+            {
             config_step++
+            global.ghook_key[1] = keyboard_lastkey
+            }
+        }
+    
+    if config_step = 9
+        {
+        str = "Player 2 Press the Down Button"
+        if keyboard_check_pressed(vk_anykey)
+            {
+            config_step++
+            global.move_down_key[1] = keyboard_lastkey
+            }
+        }
+        
+    if config_step = 8
+        {
+        str = "Player 2 Press the Jump Button"
+        if keyboard_check_pressed(vk_anykey)
+            {
+            config_step++
+            global.move_up_key[1] = keyboard_lastkey
+            global.move_wall_bounce_key[1] = keyboard_lastkey
+            global.move_jump_key[1] = keyboard_lastkey
+            }
         }
     
     if config_step = 7
         {
-        str = "Player 2 Press the Jump Button"
+        str = "Player 2 Press the Move Right Button"
         if keyboard_check_pressed(vk_anykey)
+            {
             config_step++
+            global.move_right_key[1] = keyboard_lastkey
+            }
         }
     
     if config_step = 6
         {
-        str = "Player 2 Press the Move Right Button"
+        str = "Player 2 Press the Move Left Button"
         if keyboard_check_pressed(vk_anykey)
+            {
             config_step++
+            global.move_left_key[1] = keyboard_lastkey
+            }
         }
     
     if config_step = 5
         {
-        str = "Player 2 Press the Move Left Button"
+        str = "Player 1 Control Configuration Complete!##Press Any Key to Continue to Player 2 Configuration"
         if keyboard_check_pressed(vk_anykey)
+            {
             config_step++
+            }
         }
     
     if config_step = 4
         {
-        str = "Player 1 Control Configuration Complete!##Press Any Key to Continue to Player 2 Configuration"
+        str = "Player 1 Press the Fire Grappling Hook Button"
         if keyboard_check_pressed(vk_anykey)
+            {
             config_step++
+            global.ghook_key[0] = keyboard_lastkey
+            }
         }
     
     if config_step = 3
         {
-        str = "Player 1 Press the Fire Grappling Hook Button"
+        str = "Player 1 Press the Down Button"
         if keyboard_check_pressed(vk_anykey)
+            {
             config_step++
+            global.move_down_key[0] = keyboard_lastkey
+            }
         }
     
     if config_step = 2
         {
         str = "Player 1 Press the Jump Button"
         if keyboard_check_pressed(vk_anykey)
+            {
             config_step++
+            global.move_up_key[0] = keyboard_lastkey
+            }
         }
     
     if config_step = 1
         {
         str = "Player 1 Press the Move Right Button"
         if keyboard_check_pressed(vk_anykey)
+            {
             config_step++
+            global.move_right_key[0] = keyboard_lastkey
+            }
         }
     
     if config_step = 0
         {
         str = "Player 1 Press the Move Left Button"
         if keyboard_check_pressed(vk_anykey)
+            {
             config_step++
+            global.move_left_key[0] = keyboard_lastkey
+            }
         }
     
     draw_sprite_ext(spr_controls_config,config_step,room_width/2,room_height/2-128,1,1,blink * 10 - 5,c_white,blink)

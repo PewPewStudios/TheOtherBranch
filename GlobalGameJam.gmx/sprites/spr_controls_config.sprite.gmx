@@ -34,5 +34,7 @@
     <frame index="11">images\spr_controls_config_11.png</frame>
     <frame index="12">images\spr_controls_config_12.png</frame>
     <frame index="13">images\spr_controls_config_13.png</frame>
+    <frame index="14">images\spr_controls_config_14.png</frame>
+    <frame index="15">images\spr_controls_config_15.png</frame>
   </frames>
 </sprite>

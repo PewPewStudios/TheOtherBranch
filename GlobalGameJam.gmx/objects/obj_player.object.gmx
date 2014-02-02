@@ -347,7 +347,7 @@ if other.x &lt; x
 x-=2
 if other.x &gt; x
 x+=2
-if other.y &gt; y
+if other.y &lt; y
 y-=2
 if other.y &gt; y
 y+=2

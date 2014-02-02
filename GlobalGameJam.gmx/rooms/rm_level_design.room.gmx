@@ -51,7 +51,6 @@
   </views>
   <instances>
     <instance objName="obj_dev_controls" x="256" y="64" name="inst_77F73D0C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_controls" x="224" y="96" name="inst_6DBED289" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ground" x="32" y="32" name="inst_DE50CA9F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ground" x="32" y="96" name="inst_1B469526" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ground" x="32" y="1056" name="inst_00E36F99" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
