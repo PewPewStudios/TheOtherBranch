@@ -65,6 +65,7 @@ if(bg != noone)
         }
     }
 }
+bg = noone;
 </string>
           </argument>
         </arguments>
