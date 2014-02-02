@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>for(j=1 ; j&lt;=2 ; j++)
+            <string>config_step = 0
+
+for(j=1 ; j&lt;=2 ; j++)
 for(i=0 ; i&lt;32 ; i++)
     {
     jbutton_pressed[j,i] = 0
@@ -231,6 +233,110 @@ if global.player_controls[i] = 4
     }
 }
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if room = rm_controls_config
+    {
+    draw_set_font(fnt_main_menu_main)
+    draw_set_halign(fa_center)
+    draw_set_valign(fa_center)
+    draw_set_color(c_white)
+    
+    if config_step = 9
+        {
+        str = "Player 2 Control Configuration Complete!##Press Any Key to Continue"
+        if keyboard_check_pressed(vk_anykey)
+            room_goto_next()
+        }
+        
+    if config_step = 8
+        {
+        str = "Player 2 Press the Fire Grappling Hook Button"
+        if keyboard_check_pressed(vk_anykey)
+            config_step++
+        }
+    
+    if config_step = 7
+        {
+        str = "Player 2 Press the Jump Button"
+        if keyboard_check_pressed(vk_anykey)
+            config_step++
+        }
+    
+    if config_step = 6
+        {
+        str = "Player 2 Press the Move Right Button"
+        if keyboard_check_pressed(vk_anykey)
+            config_step++
+        }
+    
+    if config_step = 5
+        {
+        str = "Player 2 Press the Move Left Button"
+        if keyboard_check_pressed(vk_anykey)
+            config_step++
+        }
+    
+    if config_step = 4
+        {
+        str = "Player 1 Control Configuration Complete!##Press Any Key to Continue"
+        if keyboard_check_pressed(vk_anykey)
+            config_step++
+        }
+    
+    if config_step = 3
+        {
+        str = "Player 1 Press the Fire Grappling Hook Button"
+        if keyboard_check_pressed(vk_anykey)
+            config_step++
+        }
+    
+    if config_step = 2
+        {
+        str = "Player 1 Press the Jump Button"
+        if keyboard_check_pressed(vk_anykey)
+            config_step++
+        }
+    
+    if config_step = 1
+        {
+        str = "Player 1 Press the Move Right Button"
+        if keyboard_check_pressed(vk_anykey)
+            config_step++
+        }
+    
+    if config_step = 0
+        {
+        str = "Player 1 Press the Move Left Button"
+        if keyboard_check_pressed(vk_anykey)
+            config_step++
+        }
+    
+    draw_sprite(spr_controls_config,config_step,room_width/2,room_height/2-128)
+    draw_text(room_width/2,room_height/2+128,str)
+    draw_text(room_width/2,64,"Configure Controls")
+    //"Control Configurations##You will only have to do this once on this machine##"+
+    }
 </string>
           </argument>
         </arguments>

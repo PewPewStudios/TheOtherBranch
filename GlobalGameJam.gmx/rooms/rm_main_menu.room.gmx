@@ -10,8 +10,7 @@
   <persistent>0</persistent>
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
-  <code>instance_create(x,y,obj_variables);
-instance_create(x,y,obj_main_menu);
+  <code>instance_create(x,y,obj_main_menu);
 if(global.music)
 audio_play_music(snd_title, true);</code>
   <enableViews>0</enableViews>
@@ -54,7 +53,6 @@ audio_play_music(snd_title, true);</code>
   </views>
   <instances>
     <instance objName="obj_dev_controls" x="128" y="256" name="inst_92D4CB92" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_controls" x="96" y="64" name="inst_FA2504DB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

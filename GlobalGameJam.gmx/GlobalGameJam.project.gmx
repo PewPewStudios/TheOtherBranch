@@ -24,6 +24,7 @@
     <sound>sound\snd_level_end</sound>
   </sounds>
   <sprites name="sprites">
+    <sprite>sprites\spr_controls_config</sprite>
     <sprite>sprites\spr_arrow</sprite>
     <sprite>sprites\spr_banana</sprite>
     <sprite>sprites\spr_bar</sprite>
