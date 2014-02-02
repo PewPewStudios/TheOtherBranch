@@ -389,8 +389,8 @@ if ghook_active
     for(i=32 ; i&lt;point_distance(x,y,ghook_x,ghook_y) ; i+=32)
         {
         dir = point_direction(x,y,ghook_x,ghook_y)
-        x1 = x+lengthdir_x(32*i,dir)
-        y1 = y+lengthdir_y(32*i,dir)
+        x1 = x+lengthdir_x(i,dir)
+        y1 = y+lengthdir_y(i,dir)
         draw_sprite_ext(spr_ghook_wire , 0 , x1,y1 ,1,1,dir,c_white,1 )
         }
     }
