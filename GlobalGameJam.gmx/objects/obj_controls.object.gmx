@@ -52,6 +52,8 @@ global.move_down[1] = 0
 global.move_wall_bounce[1] = 0
 global.ghook[1] = 0
 
+blink = 1
+blink_dir = -.1
 
 controller = 0;
 controlling = 0;
@@ -103,7 +105,16 @@ global.p2spawnY = player2Y;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>for(j=1 ; j&lt;=2 ; j++)
+            <string>if blink &gt;= 1
+blink_dir =-.1
+if blink &lt;= 0
+blink_dir =.1
+blink += blink_dir
+
+if keyboard_check_pressed(vk_escape)
+game_end()
+/*
+for(j=1 ; j&lt;=2 ; j++)
     {
     if joystick_exists(j)
     for(i=0 ; i&lt;joystick_buttons(j) ; i++)
@@ -120,7 +131,7 @@ global.p2spawnY = player2Y;
         jbutton_prev[j,i] = joystick_check_button(j,i)
         }
     }
-
+*/
 global.move_left[0] = 0
 global.move_right[0] = 0
 global.move_jump[0] = 0
@@ -144,21 +155,21 @@ if(gamepad_is_connected(0))
     if(gamepad_button_check_pressed(0,global.change))
     {
     if(controlling = 0)
-    {
+        {
         controlling = 1;
-    }
+        }
     else
-    {
+        {
         controlling = 0;
-    }
+        }
     }   
 }
 for(i=0 ; i&lt;global.player_mode ; i++)
 {
 if(global.playersPlaying = 2)
-{
+    {
     controller = i;
-}
+    }
 if global.player_controls[i] = 0
     {
     if keyboard_check(vk_left)
@@ -173,7 +184,7 @@ if global.player_controls[i] = 0
         }
     if keyboard_check(vk_down)
         global.move_down[i] = 1
-    if keyboard_check_pressed(vk_space)
+    if keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter)
         global.action[i] = 1
     }
 if global.player_controls[i] = 1
@@ -264,7 +275,7 @@ if global.player_controls[i] = 4
     
     if config_step = 9
         {
-        str = "Player 2 Control Configuration Complete!##Press Any Key to Continue"
+        str = "Player 2 Control Configuration Complete!##Press any key to save these settings and continue to the main menu.#To change these setting later, simply delete the controls.txt file in the game folder."
         if keyboard_check_pressed(vk_anykey)
             room_goto_next()
         }
@@ -299,7 +310,7 @@ if global.player_controls[i] = 4
     
     if config_step = 4
         {
-        str = "Player 1 Control Configuration Complete!##Press Any Key to Continue"
+        str = "Player 1 Control Configuration Complete!##Press Any Key to Continue to Player 2 Configuration"
         if keyboard_check_pressed(vk_anykey)
             config_step++
         }
@@ -332,7 +343,7 @@ if global.player_controls[i] = 4
             config_step++
         }
     
-    draw_sprite(spr_controls_config,config_step,room_width/2,room_height/2-128)
+    draw_sprite_ext(spr_controls_config,config_step,room_width/2,room_height/2-128,1,1,blink * 10 - 5,c_white,blink)
     draw_text(room_width/2,room_height/2+128,str)
     draw_text(room_width/2,64,"Configure Controls")
     //"Control Configurations##You will only have to do this once on this machine##"+
