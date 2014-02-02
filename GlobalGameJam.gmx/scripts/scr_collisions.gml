@@ -4,18 +4,24 @@ if collision_circle(x,y-sprite_height/2,3,obj_ground,1,1)
 if vspeed < 0
 vspeed = 0 //abs(vspeed) / 2
 
-if collision_circle(x-sprite_width/2,y,3,obj_ground,1,1)
-if hspeed < 0
-{
-x+=1
-hspeed = 0 //abs(hspeed) / 2
-}
-if collision_circle(x+sprite_width/2,y,3,obj_ground,1,1)
-if hspeed > 0
-{
-x-=1
-hspeed = 0 //-abs(hspeed) / 2
-}
+if collision_circle(x-sprite_height/2,y,3,obj_ground,1,1)
+    {
+    if collision_circle(x-sprite_height/3,y,3,obj_ground,1,1)
+    x+=2
+    if hspeed < 0
+        {
+        hspeed = 0 //abs(hspeed) / 2
+        }
+    }
+if collision_circle(x+sprite_height/2,y,3,obj_ground,1,1)
+    {
+    if collision_circle(x+sprite_height/3,y,3,obj_ground,1,1)
+    x-=2
+    if hspeed > 0
+        {
+        hspeed = 0 //-abs(hspeed) / 2
+        }
+    }
 //Platform Collisions
 
 //if vspeed > 0
