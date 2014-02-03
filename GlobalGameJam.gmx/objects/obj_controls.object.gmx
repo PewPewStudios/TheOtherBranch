@@ -285,7 +285,39 @@ if global.player_controls[i] = CONTROLS_J2
             <kind>1</kind>
             <string>if room = rm_controls_config
     {
-    room_goto_next()
+    
+    if file_exists("controls.txt")
+        {
+        fid = file_text_open_read("controls.txt")
+        str = file_text_read_string(fid)
+        filestr = str
+        global.move_left_key[0] = scr_next_number_in(str)
+        str = scr_clear_next_in(str)
+        global.move_right_key[0] = scr_next_number_in(str)
+        str = scr_clear_next_in(str)
+        global.move_up_key[0] = scr_next_number_in(str)
+        str = scr_clear_next_in(str)
+        global.move_down_key[0] = scr_next_number_in(str)
+        str = scr_clear_next_in(str)
+        global.ghook_key[0] = scr_next_number_in(str)
+        str = scr_clear_next_in(str)
+        
+        global.move_left_key[1] = scr_next_number_in(str)
+        str = scr_clear_next_in(str)
+        global.move_right_key[1] = scr_next_number_in(str)
+        str = scr_clear_next_in(str)
+        global.move_up_key[1] = scr_next_number_in(str)
+        str = scr_clear_next_in(str)
+        global.move_down_key[1] = scr_next_number_in(str)
+        str = scr_clear_next_in(str)
+        global.ghook_key[1] = scr_next_number_in(str)
+        str = scr_clear_next_in(str)
+        
+        file_text_close(fid)
+        room_goto_next()
+        exit
+        }
+    
     draw_set_font(fnt_main_menu_main)
     draw_set_halign(fa_center)
     draw_set_valign(fa_center)
@@ -302,7 +334,16 @@ if global.player_controls[i] = CONTROLS_J2
             {
             fid = file_text_open_write("controls.txt")
             str = ""
-            str+=scr_next_out(0)
+            str+=scr_next_out(global.move_left_key[0])
+            str+=scr_next_out(global.move_right_key[0])
+            str+=scr_next_out(global.move_up_key[0])
+            str+=scr_next_out(global.move_down_key[0])
+            str+=scr_next_out(global.ghook_key[0])
+            str+=scr_next_out(global.move_left_key[1])
+            str+=scr_next_out(global.move_right_key[1])
+            str+=scr_next_out(global.move_up_key[1])
+            str+=scr_next_out(global.move_down_key[1])
+            str+=scr_next_out(global.ghook_key[1])
             file_text_write_string(fid,str)
             file_text_close(fid)
             room_goto_next()
@@ -425,6 +466,11 @@ if global.player_controls[i] = CONTROLS_J2
     draw_text(room_width/2,64,"Configure Controls")
     //"Control Configurations##You will only have to do this once on this machine##"+
     }
+/*
+draw_set_halign(fa_left)
+draw_text(32,32,filestr)
+draw_text(32,32*2,"global.move_left_key[0] = "+string(global.move_left_key[0]))
+
 </string>
           </argument>
         </arguments>

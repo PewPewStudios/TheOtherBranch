@@ -84,6 +84,7 @@
   <scripts name="scripts">
     <scripts name="file I/O">
       <script>scripts\scr_next_in.gml</script>
+      <script>scripts\scr_next_number_in.gml</script>
       <script>scripts\scr_clear_next_in.gml</script>
       <script>scripts\scr_next_out.gml</script>
     </scripts>
