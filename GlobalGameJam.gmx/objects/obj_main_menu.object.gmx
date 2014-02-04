@@ -255,18 +255,14 @@ if hash[selected] = "music"
             {
             cmove = 0
             alarm[1] = 4
-            //if keyboard_check_pressed(vk_right)
-                {
-                if global.music &lt; 1
-                    {
-                    msc_add+=.01
-                    global.music += msc_add //.02
-                    }
-                if global.music &gt; 1
-                    {
-                    global.music = 1
-                    }
-                }
+            if(global.music = 1)
+            {
+                global.music = 0;
+            }
+            else
+            {
+                global.music = 1;
+            }
             }
         }
     else
@@ -275,29 +271,20 @@ if hash[selected] = "music"
             {
             if cmove
                 {    
-                cmove = 0
-                alarm[1] = 4
-                //if keyboard_check_pressed(vk_left)
+                    cmove = 0
+                    alarm[1] = 4
+                    if(global.music = 1)
                     {
-                    if global.music &gt; 0
-                        {
-                        msc_add+=.01
-                        global.music -= msc_add
-                        }
-                    if global.music &lt; 0
-                        {
-                        global.music = 0
-                        }
+                        global.music = 0;
+                    }
+                    else
+                    {
+                        global.music = 1;
                     }
                 }
             }
-        else
-            {
-            msc_add = 0
-            }
         }
-    }
-    
+    }    
 
 if hash[selected] = "sfx"
     {
@@ -307,18 +294,14 @@ if hash[selected] = "sfx"
             {
             cmove = 0
             alarm[1] = 4
-            //if keyboard_check_pressed(vk_right)
-                {
-                if global.soundFX &lt; 1
-                    {
-                    msc_add+=.01
-                    global.soundFX += msc_add //.02
-                    }
-                if global.soundFX &gt; 1
-                    {
-                    global.soundFX = 1
-                    }
-                }
+            if(global.soundFX)
+            {
+                global.soundFX = 0;
+            }
+            else
+            {
+                global.soundFX = 1;
+            }
             }
         }
     else
@@ -329,23 +312,15 @@ if hash[selected] = "sfx"
                 {    
                 cmove = 0
                 alarm[1] = 4
-                //if keyboard_check_pressed(vk_left)
-                    {
-                    if global.soundFX &gt; 0
-                        {
-                        msc_add+=.01
-                        global.soundFX -= msc_add
-                        }
-                    if global.soundFX &lt; 0
-                        {
-                        global.soundFX = 0
-                        }
-                    }
+                if(global.soundFX)
+                {
+                    global.soundFX = 0;
                 }
-            }
-        else
-            {
-            msc_add = 0
+                else
+                {
+                    global.soundFX = 1;
+                }
+                }
             }
         }
     }
