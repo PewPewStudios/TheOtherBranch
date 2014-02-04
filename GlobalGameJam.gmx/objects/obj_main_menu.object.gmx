@@ -55,7 +55,7 @@ disp_sound = 0
 flash = .5
 flashdir = .1
 
-
+menu_yoff = 0
 </string>
           </argument>
         </arguments>
@@ -163,6 +163,8 @@ flashdir = -.1
 if flash &lt;= .5
 flashdir = .1
 flash += flashdir
+
+menu_yoff = adjust(menu_yoff , selected * 24)
 
 disp_music = adjust(disp_music,global.music)
 disp_sound = adjust(disp_sound,global.soundFX)
@@ -366,18 +368,23 @@ if hash[selected] = "sfx"
     }
     
     
-if hash[selected] = "multiplayer"
+if hash[selected] = "mp"
     {
-    if global.move_left[0]
-    if keyboard_check_pressed(vk_right)
+    
+    if global.move_left[0] &amp;&amp; cmove
+    //if keyboard_check_pressed(vk_right)
         {
+        cmove = 0
+        alarm[1] = 10
         global.playersPlaying++
         if global.playersPlaying = 3 global.playersPlaying = 1
         }
-    if global.move_right[0]
-    if keyboard_check_pressed(vk_left)
+    if global.move_right[0] &amp;&amp; cmove
+    //if keyboard_check_pressed(vk_left)
         {
-        global.player_mode--
+        cmove = 0
+        alarm[1] = 10
+        global.playersPlaying--
         if global.playersPlaying = 0 global.playersPlaying = 2
         }
     }
@@ -580,7 +587,7 @@ str = "Conquest"
 //2 = GAME CONTROLLER 2
 //3 = JOYSTICK 1
 //4 = JOYSTICK 2
-scr_add_option("Players: " + string(global.playersPlaying), "multiplayer");
+scr_add_option("Players: " + string(global.playersPlaying), "mp");
 
 if global.player_controls[0] = 0
 str = "Arrow Keys"
@@ -607,7 +614,7 @@ str = "Joystick 1"
 if global.player_controls[1] = 4
 str = "Joystick 2"
 
-
+if global.playersPlaying = 2
 scr_add_option("Player 2: &lt;"+str+"&gt;","p2c")
 /*
 str = "["
@@ -666,7 +673,7 @@ draw_set_color(c_black);
 */
 draw_set_halign(fa_center)
 draw_set_valign(fa_center)
-yoff = 0 //128
+yoff = -menu_yoff //128
 for(i=0 ; i&lt;options ; i++)
     {
     /*
@@ -681,18 +688,16 @@ for(i=0 ; i&lt;options ; i++)
     draw_sprite_ext(spr_main_menu_button,(selected == i),room_width/2 - 330, room_height/2 + 64 * i - 34 + yoff,1,1,0,c_white,a)
     
     if option_value[i] &gt; -1 //&amp;&amp; selected = i
-    {
-    //draw_set_color(c_blue)
-    //draw_rectangle(room_width/2 - 480, room_height/2 + 64 * i - 24 + yoff , room_width/2 - 480 + 960 * option_value[i], room_height/2 + 64 * i + 24 + yoff, 0)
-    draw_sprite_part(spr_main_menu_button,3,0,0,option_value[i]*660,68,room_width/2 - 330, room_height/2 + 64 * i - 34 + yoff)
-    }
-    
+        {
+        //draw_set_color(c_blue)
+        //draw_rectangle(room_width/2 - 480, room_height/2 + 64 * i - 24 + yoff , room_width/2 - 480 + 960 * option_value[i], room_height/2 + 64 * i + 24 + yoff, 0)
+        draw_sprite_part(spr_main_menu_button,3,0,0,option_value[i]*660,68,room_width/2 - 330, room_height/2 + 64 * i - 34 + yoff)
+        }
     
     draw_set_color(c_blue)
     draw_text(room_width/2-1, room_height/2 + 64 * i + yoff-1, option_text[i]);
     draw_set_color(c_white)
     draw_text(room_width/2, room_height/2 + 64 * i + yoff, option_text[i]);
-    
     }
 </string>
           </argument>
