@@ -205,10 +205,10 @@
     <room>rooms\rm_level_design</room>
     <room>rooms\rm_game</room>
     <room>rooms\rm_level_design1b</room>
+    <room>rooms\rm_tutorial</room>
     <room>rooms\rm_level_design1</room>
     <room>rooms\rm_level_design2</room>
     <room>rooms\rm_level2</room>
-    <room>rooms\rm_tutorial</room>
   </rooms>
   <constants number="11">
     <constant name="player1_sprite">spr_mouse_moving</constant>
