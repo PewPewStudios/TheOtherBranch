@@ -169,6 +169,8 @@ menu_yoff = adjust(menu_yoff , selected * 24)
 disp_music = adjust(disp_music,global.music)
 disp_sound = adjust(disp_sound,global.soundFX)
 
+
+
 /*
 if(gamepad_is_connected(0))
 {
@@ -453,6 +455,7 @@ if hash[selected] = "p1c"
         {
         global.player_controls[0]++
         }
+    if global.playersPlaying = 2
     if global.player_controls[0] = global.player_controls[1] 
     &amp;&amp; global.player_controls[0] != 2
         {
@@ -473,30 +476,32 @@ if hash[selected] = "p2c"
         {
         global.player_controls[1]--
         }
-    if global.player_controls[1] = 2
-    if !gamepad_is_connected(0)
-        {
-        global.player_controls[1]++
-        }
-    if global.player_controls[1] = 3
-    if !joystick_exists(1)
-        {
-        global.player_controls[1]++
-        }
-    if global.player_controls[1] = 4
-    if !joystick_exists(2)
-        {
-        global.player_controls[1]++
-        }
-    if global.player_controls[1] = global.player_controls[0] 
-    &amp;&amp; global.player_controls[0] != 2
-        {
-        global.player_controls[1]++
-        }
-    
-    if global.player_controls[1] &gt; 4 global.player_controls[1] = 0
-    if global.player_controls[1] &lt; 0 global.player_controls[1] = 4
     }
+if global.player_controls[1] = 2
+if !gamepad_is_connected(0)
+    {
+    global.player_controls[1]++
+    }
+if global.player_controls[1] = 3
+if !joystick_exists(1)
+    {
+    global.player_controls[1]++
+    }
+if global.player_controls[1] = 4
+if !joystick_exists(2)
+    {
+    global.player_controls[1]++
+    }
+
+if global.player_controls[1] &gt; 4 global.player_controls[1] = 0
+if global.player_controls[1] &lt; 0 global.player_controls[1] = 4
+    
+if global.player_controls[1] = global.player_controls[0] 
+&amp;&amp; global.player_controls[0] != 2
+    {
+    global.player_controls[1]++
+    }
+    
     
 if global.action[0] || (global.move_jump[0] &amp;&amp; global.player_controls[0] = CONTROLS_GAMEPAD) //|| keyboard_check_pressed(vk_enter)
     {

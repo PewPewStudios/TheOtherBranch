@@ -11,8 +11,9 @@
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
   <code>instance_create(x,y,obj_main_menu);
-if(global.music)
-audio_play_music(snd_title, true);</code>
+//if(global.music)
+//audio_play_music(snd_title, true);
+//audio_sound_gain(snd_title,global.music,)</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <makerSettings>

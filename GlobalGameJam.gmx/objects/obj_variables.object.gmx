@@ -26,6 +26,10 @@
           <argument>
             <kind>1</kind>
             <string>
+global.music_index = audio_play_sound(snd_title,1,1)
+global.sound_index = audio_emitter_create()
+
+
 global.shoot = gp_face3;
 global.jump = gp_face1;
 global.use = gp_shoulderr;
@@ -72,6 +76,32 @@ audio_play_music(snd_music_loop,1)
 /*
 if room = rm_main_menu
 instance_create(x,y,obj_main_menu)
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//audio_sound_gain(global.music_index, global.music, 1)
+audio_master_gain(global.music)
+//audio_emitter_gain(global.music_index , global.music)
+//audio_emitter_gain(global.sound_index , global.soundFX)
 </string>
           </argument>
         </arguments>
