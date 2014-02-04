@@ -48,6 +48,14 @@ if(gamepad_is_connected(1))
 msc_add = 0
 
 alarm[2] = 10
+
+disp_music = 0
+disp_sound = 0
+
+flash = .5
+flashdir = .1
+
+
 </string>
           </argument>
         </arguments>
@@ -150,7 +158,14 @@ global.player_controls[0] = CONTROLS_J2
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>if flash &gt;= 1
+flashdir = -.1
+if flash &lt;= .5
+flashdir = .1
+flash += flashdir
+
+disp_music = adjust(disp_music,global.music)
+disp_sound = adjust(disp_sound,global.soundFX)
 
 /*
 if(gamepad_is_connected(0))
@@ -255,53 +270,18 @@ if hash[selected] = "music"
             {
             cmove = 0
             alarm[1] = 4
-            if(global.music = 1)
-            {
-                global.music = 0;
-            }
-            else
-            {
-                global.music = 1;
-            }
-            }
-        }
-    else
-        {
-        if global.move_left[0]
-            {
-            if cmove
-                {    
-                    cmove = 0
-                    alarm[1] = 4
-                    if(global.music = 1)
+            //if keyboard_check_pressed(vk_right)
+                {
+                if global.music &lt; 1
                     {
-                        global.music = 0;
+                    msc_add+=.01
+                    global.music += msc_add //.02
                     }
-                    else
+                if global.music &gt; 1
                     {
-                        global.music = 1;
+                    global.music = 1
                     }
                 }
-            }
-        }
-    }    
-
-if hash[selected] = "sfx"
-    {
-    if global.move_right[0]
-        {
-        if cmove
-            {
-            cmove = 0
-            alarm[1] = 4
-            if(global.soundFX)
-            {
-                global.soundFX = 0;
-            }
-            else
-            {
-                global.soundFX = 1;
-            }
             }
         }
     else
@@ -312,15 +292,75 @@ if hash[selected] = "sfx"
                 {    
                 cmove = 0
                 alarm[1] = 4
-                if(global.soundFX)
+                //if keyboard_check_pressed(vk_left)
+                    {
+                    if global.music &gt; 0
+                        {
+                        msc_add+=.01
+                        global.music -= msc_add
+                        }
+                    if global.music &lt; 0
+                        {
+                        global.music = 0
+                        }
+                    }
+                }
+            }
+        else
+            {
+            msc_add = 0
+            }
+        }
+    }
+    
+
+if hash[selected] = "sfx"
+    {
+    if global.move_right[0]
+        {
+        if cmove
+            {
+            cmove = 0
+            alarm[1] = 4
+            //if keyboard_check_pressed(vk_right)
                 {
-                    global.soundFX = 0;
+                if global.soundFX &lt; 1
+                    {
+                    msc_add+=.01
+                    global.soundFX += msc_add //.02
+                    }
+                if global.soundFX &gt; 1
+                    {
+                    global.soundFX = 1
+                    }
                 }
-                else
-                {
-                    global.soundFX = 1;
+            }
+        }
+    else
+        {
+        if global.move_left[0]
+            {
+            if cmove
+                {    
+                cmove = 0
+                alarm[1] = 4
+                //if keyboard_check_pressed(vk_left)
+                    {
+                    if global.soundFX &gt; 0
+                        {
+                        msc_add+=.01
+                        global.soundFX -= msc_add
+                        }
+                    if global.soundFX &lt; 0
+                        {
+                        global.soundFX = 0
+                        }
+                    }
                 }
-                }
+            }
+        else
+            {
+            msc_add = 0
             }
         }
     }
@@ -540,7 +580,7 @@ str = "Conquest"
 //2 = GAME CONTROLLER 2
 //3 = JOYSTICK 1
 //4 = JOYSTICK 2
-scr_add_option("Players" + string(global.playersPlaying), "multiplayer");
+scr_add_option("Players: " + string(global.playersPlaying), "multiplayer");
 
 if global.player_controls[0] = 0
 str = "Arrow Keys"
@@ -577,8 +617,11 @@ str+="]"
 for(i=i ; i&lt;10 ; i++)
 str+=" "
 */
-str = string(round(global.music*100))
-scr_add_option_bar("Music Volume: &lt; "+str+" &gt;","music",global.music) //string(round(global.music*100))
+
+
+str = "Music: "+string(round(disp_music*100))+"%"
+// Volume: &lt; "+str+" &gt;
+scr_add_option_bar(str,"music",disp_music) //string(round(global.music*100))
 /*
 str = "["
 for(i=0 ; i&lt;global.soundFX * 10 ; i++)
@@ -587,8 +630,15 @@ str+="]"
 for(i=i ; i&lt;10 ; i++)
 str+=" "
 */
-str = string(round(global.soundFX*100))
-scr_add_option_bar("Sound Effects Volume: &lt; "+str+" &gt;","sfx",global.soundFX) //string(round(global.soundFX*100))
+//str = string(round(disp_sound*100))
+
+//Sound Effects Volume: &lt; "+str+" &gt;
+
+//if selected = options
+//str = round(disp_sound*100)
+//else
+str = "Sound Effects: "+string(round(disp_sound*100))+"%"
+scr_add_option_bar(str,"sfx",disp_sound) //string(round(global.soundFX*100))
 
 
 scr_add_option("Exit Game","exit")
@@ -619,17 +669,30 @@ draw_set_valign(fa_center)
 yoff = 0 //128
 for(i=0 ; i&lt;options ; i++)
     {
+    /*
     draw_set_color(c_dkgray)
     if selected = i
     draw_set_color(c_gray)
     draw_rectangle(room_width/2 - 480, room_height/2 + 64 * i - 24 + yoff , room_width/2 + 480, room_height/2 + 64 * i + 24 + yoff, 0)
-    if option_value[i] &gt; -1 &amp;&amp; selected = i
+    */
+    if selected = i
+    a = flash
+    else a = 1
+    draw_sprite_ext(spr_main_menu_button,(selected == i),room_width/2 - 330, room_height/2 + 64 * i - 34 + yoff,1,1,0,c_white,a)
+    
+    if option_value[i] &gt; -1 //&amp;&amp; selected = i
     {
-    draw_set_color(c_blue)
-    draw_rectangle(room_width/2 - 480, room_height/2 + 64 * i - 24 + yoff , room_width/2 - 480 + 960 * option_value[i], room_height/2 + 64 * i + 24 + yoff, 0)
+    //draw_set_color(c_blue)
+    //draw_rectangle(room_width/2 - 480, room_height/2 + 64 * i - 24 + yoff , room_width/2 - 480 + 960 * option_value[i], room_height/2 + 64 * i + 24 + yoff, 0)
+    draw_sprite_part(spr_main_menu_button,3,0,0,option_value[i]*660,68,room_width/2 - 330, room_height/2 + 64 * i - 34 + yoff)
     }
+    
+    
+    draw_set_color(c_blue)
+    draw_text(room_width/2-1, room_height/2 + 64 * i + yoff-1, option_text[i]);
     draw_set_color(c_white)
     draw_text(room_width/2, room_height/2 + 64 * i + yoff, option_text[i]);
+    
     }
 </string>
           </argument>

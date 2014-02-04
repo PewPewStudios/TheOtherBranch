@@ -93,6 +93,7 @@
     <sprite>sprites\spr_tutorial_icons</sprite>
     <sprite>sprites\spr_vine</sprite>
     <sprite>sprites\spr_wind</sprite>
+    <sprite>sprites\spr_main_menu_button</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\back1</background>
@@ -149,6 +150,7 @@
       <script>scripts\key1.gml</script>
       <script>scripts\key2.gml</script>
     </scripts>
+    <script>scripts\adjust.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_main_menu_main</font>
