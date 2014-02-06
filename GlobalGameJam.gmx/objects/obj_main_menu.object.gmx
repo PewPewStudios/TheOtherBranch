@@ -505,6 +505,17 @@ if global.player_controls[1] = global.player_controls[0]
     
 if global.action[0] || (global.move_jump[0] &amp;&amp; global.player_controls[0] = CONTROLS_GAMEPAD) //|| keyboard_check_pressed(vk_enter)
     {
+    if hash[selected] = "reset"
+    {
+    if file_exists("controls.txt")
+        {
+        file_delete("controls.txt")
+        //show_question("controls.txt deleted. Restart game to configure controls.")
+        game_end()
+        }
+    else
+    show_message("controls.txt does not exist")
+    }
     if hash[selected] = "start"
         {
         room = rm_level_design1
@@ -652,6 +663,8 @@ str+=" "
 str = "Sound Effects: "+string(round(disp_sound*100))+"%"
 scr_add_option_bar(str,"sfx",disp_sound) //string(round(global.soundFX*100))
 
+
+scr_add_option("Reset Controls","reset")
 
 scr_add_option("Exit Game","exit")
 
