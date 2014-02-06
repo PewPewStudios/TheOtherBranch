@@ -50,11 +50,11 @@
             <kind>1</kind>
             <string>if collision_circle(x,y+sprite_height,6,obj_ground,1,1)
     {
-    vspeed = -2 //abs(hspeed)
+    vspeed = -7 //abs(hspeed)
     }
 if collision_circle(x,y-sprite_height,6,obj_ground,1,1)
     {
-    vspeed = 2 //abs(hspeed)
+    vspeed = 7 //abs(hspeed)
     }
 </string>
           </argument>
