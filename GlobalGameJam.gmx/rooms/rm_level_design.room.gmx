@@ -249,7 +249,7 @@
     <instance objName="obj_ground" x="608" y="1312" name="inst_A93B714B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ground" x="608" y="1248" name="inst_9DD07FC2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ground" x="1120" y="1056" name="inst_64197F83" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_player" x="192" y="1184" name="inst_A6CD6CF0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_player" x="192" y="1184" name="inst_A6CD6CF0" locked="0" code="player2()" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ground" x="1184" y="800" name="inst_499BD1ED" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ground" x="1120" y="800" name="inst_1C375684" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ground" x="1056" y="800" name="inst_6C9A6B6D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -287,9 +287,9 @@
     <instance objName="obj_lava" x="544" y="1312" name="inst_8CED24F4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ground" x="480" y="480" name="inst_2B5CEDA1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_seed_shooter_up" x="1440" y="416" name="inst_9903264E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_door" x="416" y="640" name="inst_013820A0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_door" x="416" y="640" name="inst_013820A0" locked="0" code="door2()" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ground" x="416" y="544" name="inst_ECDDE75F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_player" x="96" y="1184" name="inst_81A4CA8C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_player" x="96" y="1184" name="inst_81A4CA8C" locked="0" code="player1()" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ground" x="416" y="480" name="inst_0F9C5056" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_seed_shooter_down" x="1056" y="32" name="inst_28BD977B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_finish" x="1760" y="288" name="inst_DA1EC066" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -308,10 +308,10 @@
     <instance objName="obj_help_text" x="384" y="1184" name="inst_90F40C7C" locked="0" code="help_text=&quot;To jump press A.&quot;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_mite" x="736" y="672" name="inst_409C8537" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_help_text" x="224" y="672" name="inst_9A183247" locked="0" code="help_text=&quot;To wall jump, jump onto a wall, then press A to launch off the wall.&quot;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_key" x="864" y="672" name="inst_E8AB4519" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_key" x="864" y="672" name="inst_E8AB4519" locked="0" code="key1()" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ground" x="480" y="544" name="inst_1BA44956" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_door" x="480" y="640" name="inst_01EB2D6A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_key" x="928" y="672" name="inst_F1FF186E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_door" x="480" y="640" name="inst_01EB2D6A" locked="0" code="door1()" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_key" x="928" y="672" name="inst_F1FF186E" locked="0" code="key2()" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ground_moving" x="736" y="1248" name="inst_85C07E6E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>

@@ -507,7 +507,7 @@ if global.action[0] || (global.move_jump[0] &amp;&amp; global.player_controls[0]
     {
     if hash[selected] = "start"
         {
-        room = rm_level_design
+        room = rm_level_design1
         }
     if hash[selected] = "start2"
         {
